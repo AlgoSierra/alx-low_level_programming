@@ -1,9 +1,13 @@
 #include <stdio.h>
+#include "main.h"
 
 /**
- * main - main entry point
+ * main - Entry point
  *
- * Return: Always 0 (Success)
+ * Description: print the number 1-100.
+ * Fizz multiple of 3, Buzz multiple of 5
+ * FizzBuzz for mulltiples of both of them.
+ * Return: Always 0.
  */
 int main(void)
 {
