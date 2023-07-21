@@ -20,7 +20,8 @@ void print_square(int size)
 	for (i = 0; i < size; i++)
 	{
 		/* Loop through columns */
-		for (j = 0; j < size; j++){
+		for (j = 0; j < size; j++)
+		{
 			/* Print the character */
 			_putchar('#');
 		}
