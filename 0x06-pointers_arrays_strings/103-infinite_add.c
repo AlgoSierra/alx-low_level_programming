@@ -10,56 +10,60 @@
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-    int i = 0, j = 0, k, l, m, n, add = 0;
+	int i = 0, j = 0, k, l, m, n, add = 0;
 
-    while (*(n1 + i) != '\0')
-        i++;
-    while (*(n2 + j) != '\0')
-        j++;
-    
-    if (i >= j)
-        l = i;
-    else
-        l = j;
-    
-    if (size_r <= l + 1)
-        return (0);
+	while (*(n1 + i) != '\0')
+		i++;
+	while (*(n2 + j) != '\0')
+		j++;
 
-    r[l + 1] = '\0';
-    
-    i--, j--;  /* Decrement i and j to point to the last digits */
-    m = *(n1 + i) - '0';  /* Convert char to int */
-    n = *(n2 + j) - '0';  /* Convert char to int */
+	if (i >= j)
+		l = i;
+	else
+		l = j;
 
-    while (l >= 0)
-    {
-        k = m + n + add;
+	if (size_r <= l + 1)
+		return (0);
 
-        if (k >= 10)
-            add = k / 10;
-        else
-            add = 0;
+	r[l + 1] = '\0';
 
-        if (k > 0)
-            *(r + l) = (k % 10) + '0';  /* Convert int to char */
-        else
-            *(r + l) = '0';
+	i--, j--;  /* Decrement i and j to point to the last digits */
+	m = *(n1 + i) - '0';  /* Convert char to int */
+	n = *(n2 + j) - '0';  /* Convert char to int */
 
-        if (i > 0)
-            i--, m = *(n1 + i) - '0';  /* Convert char to int */
-        else
-            i = 0;
+	while (l >= 0)
+	{
+		k = m + n + add;
 
-        if (j > 0)
-            j--, n = *(n2 + j) - '0';  /* Convert char to int */
-        else
-            n = 0;
+		if (k >= 10)
+			add = k / 10;
+		else
+			add = 0;
 
-        l--, size_r--;
-    }
+		if (k > 0)
+			*(r + l) = (k % 10) + '0';  /* Convert int to char */
+		else
+			*(r + l) = '0';
 
-    if (*r == '0')
-        return (r + 1);
-    else
-        return r;
+		if (i > 0)
+			i, m = *(n1 + i) - '0';  /* Convert char to int */
+		else
+			i = 0;
+
+		if (j > 0)
+		{
+			j--, n = *(n2 + j) - '0';
+		}
+		else
+		{
+			n = 0;
+		}
+
+		l--, size_r--;
+	}
+
+	if (*r == '0')
+		return (r + 1);
+	else
+		return (r);
 }
