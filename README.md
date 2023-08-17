@@ -9,3 +9,13 @@ Frst Day of C Programming [Jul 13 23...Jul 17 23] - 100.0%
 0x05. C - Pointers, arrays and strings
 0x06. C - More pointers, arrays and strings 
 0x07. C - Even more pointers, arrays and strings
+0x08. C - Recursion
+0x09. C - Static libraries
+0x0A. C - argc, argv
+0x0B. C - malloc, free
+0x0C. C - More malloc, free
+0x0D. C - Preprocessor
+0x0E. C - Structures, typedef
+0x0F. C - Function pointers
+0x10. C - Variadic functions
+0x11. C - printf
