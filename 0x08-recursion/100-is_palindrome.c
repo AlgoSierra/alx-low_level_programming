@@ -1,24 +1,62 @@
 #include "main.h"
+
+int find_strlen(char *s);
+int check_palindrome(char *s, int len, int index);
+int is_palindrome(char *s);
+
 /**
- * is_prime_number - function that checks if a given integer
- * is a prime number or not
- * @n: integer
+ * find_strlen - Returns the length of a string.
+ * @s: The string to be measured.
  *
- * Return: 1
+ * Return: The length of the string.
  */
-int is_prime_number(int n)
+int find_strlen(char *s)
 {
-	int i;
+	int len = 0;
 
-	if (n <= 1)
+	if (*(s + len))
 	{
-		return (0);
+		len++;
+		len += find_strlen(s + len);
 	}
 
-	for (i = 2; i * i <= n; i++)
-	{
-		if (n % i == 0)
-			return (0);
-	}
-	return (1);
+	return (len);
+}
+
+/**
+ * check_palindrome - Checks if a string is a palindrome.
+ * @s: The string to be checked.
+ * @len: The length of s.
+ * @index: The index of the string to be checked.
+ *
+ * Return: If the string is a palindrome - 1.
+ * If the string is not a palindrome - 0.
+ */
+int check_palindrome(char *s, int len, int index)
+{
+	if (s[index] == s[len / 2])
+		return (1);
+
+	if (s[index] == s[len - index - 1])
+		return (check_palindrome(s, len, index + 1));
+
+	return (0);
+}
+
+/**
+ * is_palindrome - Checks if a string is a palindrome.
+ * @s: The string to be checked.
+ *
+ * Return: If the string is a palindrome - 1.
+ * If the string is not a palindrome - 0.
+ */
+int is_palindrome(char *s)
+{
+	int index = 0;
+	int len = find_strlen(s);
+
+	if (!(*s))
+		return (1);
+
+	return (check_palindrome(s, len, index));
 }
